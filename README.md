@@ -5,7 +5,7 @@ PPGo_Api_Demo_Gin
 本项目是一个关于gin框架的练习代码。 采用go+mysql实现一个API应用实例。 练习内容包括： 中间件使用、RESTFul路由创建、mysql数据库使用、静态资源加载、页面创建、配置文件读取等等。<br />
 Gin是用Golang实现的一种Web框架。基于httprouter，它提供了类似martini但更好性能(路由性能约快40倍)的API服务
 
-有什么价值？
+安装方法
 ----
 1、```go get github.com/george518/PPGo_Api_Demo_Gin ```   
 2、创建mysql数据库，并将ppgo_api_demo_gin.sql导入    
@@ -14,11 +14,11 @@ Gin是用Golang实现的一种Web框架。基于httprouter，它提供了类似m
 5、运行 ```./run.sh start|stop   ``` 
 帮助访问：http://your_host:8000  
 
-安装方法    
+有什么价值？    
 ----
 作用一：可以作为Gin框架的练手项目    
 作用二：可以用来快速搭建Gin框架的API应用    
-如果感觉项目不错，请赐予star, :)        
+    如果感觉项目不错，请赐予star, :)            
 
 API调用示例
 ----
