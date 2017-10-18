@@ -7,11 +7,11 @@ Gin是用Golang实现的一种Web框架。基于httprouter，它提供了类似m
 
 有什么价值？
 ----
-1、go get github.com/george518/PPGo_Api_Demo_Gin    
+1、```go get github.com/george518/PPGo_Api_Demo_Gin ```   
 2、创建mysql数据库，并将ppgo_api_demo_gin.sql导入    
 3、修改config/config.ini 配置数据库    
 4、运行 go build    
-5、运行 ./run.sh start|stop    
+5、运行 ```./run.sh start|stop   ``` 
 帮助访问：http://your_host:8000  
 
 安装方法    
@@ -23,29 +23,44 @@ Gin是用Golang实现的一种Web框架。基于httprouter，它提供了类似m
 API调用示例
 ----
 新增会员 POST<br />
-curl -X POST http://127.0.0.1:8000/v0/member?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=POST -d "login_name=george518&password=123456"<br />
+```shell 
+curl -X POST http://127.0.0.1:8000/v0/member?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=POST -d "login_name=george518&password=123456"
+```
+
 会员列表 GET<br />
-curl -X GET http://127.0.0.1:8000/v0/member?page=1&page_size=4&sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=GET<br />
+```shell
+curl -X GET http://127.0.0.1:8000/v0/member?page=1&page_size=4&sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=GET
+```
+
 会员详情 GET<br />
-curl -X GET http://127.0.0.1:8000/v0/member/1?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=GET<br />
+```shell
+curl -X GET http://127.0.0.1:8000/v0/member/1?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=GET
+```
+
 编辑会员 PUT<br />
-curl -X PUT http://127.0.0.1:8000/v0/member/1?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=PUT -d "login_name=haodaquan&password=1234"<br />
+```shell
+curl -X PUT http://127.0.0.1:8000/v0/member/1?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=PUT -d "login_name=haodaquan&password=1234" 
+```
+
 删除会员 DELETE<br />
-curl -X DELETE http://127.0.0.1:8000/v0/member/4?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=DELETE<br />
+```shell
+curl -X DELETE http://127.0.0.1:8000/v0/member/4?sign=ee14b34513697cd27e0e83e46b084580&ts=1508304821&app_key=1001&method=DELETE
+```
+
 
 可以在middlewares/auth.go中修改超时验证。
-` ``go
+```go
 //时差两秒返回无权 注意修改
 time_check, _ := strconv.Atoi(ts)
 if (now - int64(time_check)) > 100000000000 {
     noAuth(c, "Time out")
     return
 }
-` ``
-        
+```
+
 PHP调用接口代码示例
 ----
-` ``php
+```php
 <?php
 /************************************************************
 ** @Description: PPGo_Api_Demo_Gin API调用DEMO for PHP
@@ -147,8 +162,7 @@ function http($url, $params, $method = 'GET', $header = array(), $timeout = 10,$
     return $data;
 }
 
-` ``           
-
+```           
 
 联系我
 ----
