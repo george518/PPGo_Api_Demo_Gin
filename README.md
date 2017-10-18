@@ -41,7 +41,7 @@ if (now - int64(time_check)) > 100000000000 {
     noAuth(c, "Time out")
     return
 }
-//go
+` ``
         
 PHP调用接口代码示例
 ----
@@ -147,7 +147,7 @@ function http($url, $params, $method = 'GET', $header = array(), $timeout = 10,$
     return $data;
 }
 
-//php           
+` ``           
 
 
 联系我
