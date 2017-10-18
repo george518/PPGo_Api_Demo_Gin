@@ -21,8 +21,17 @@ import (
 func MemberList(c *gin.Context) {
 	filters := make([]interface{}, 0)
 	filters = append(filters, "id", "<>", "0")
-	page := 1
-	pageSize := 4
+
+	page, _ := strconv.Atoi(c.Request.FormValue("page"))
+	pageSize, _ := strconv.Atoi(c.Request.FormValue("page_size"))
+
+	if page == 0 {
+		page = 1
+	}
+
+	if pageSize == 0 {
+		pageSize = 10
+	}
 
 	list, n, err := models.ListMember(page, pageSize, filters...)
 

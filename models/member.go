@@ -21,7 +21,7 @@ type Member struct {
 }
 
 func (m *Member) AddMember() (id int64, err error) {
-	res, err := db.Conns.Exec("INSERT INTO ppgo_member2(login_name, password) VALUES (?, ?)", m.LoginName, m.Password)
+	res, err := db.Conns.Exec("INSERT INTO ppgo_member(login_name, password) VALUES (?, ?)", m.LoginName, m.Password)
 	if err != nil {
 		return
 	}
@@ -39,7 +39,7 @@ func ListMember(page, pageSize int, filters ...interface{}) (lists []Member, cou
 		}
 	}
 	limit := strconv.Itoa((page-1)*pageSize) + "," + strconv.Itoa(pageSize)
-	rows, err := db.Conns.Query("SELECT id, login_name, password FROM ppgo_member2 " + where + " LIMIT " + limit)
+	rows, err := db.Conns.Query("SELECT id, login_name, password FROM ppgo_member " + where + " LIMIT " + limit)
 	defer rows.Close()
 
 	if err != nil {
@@ -62,12 +62,12 @@ func OneMember(id int) (m Member, err error) {
 	m.Id = 0
 	m.LoginName = ""
 	m.Password = ""
-	err = db.Conns.QueryRow("SELECT id, login_name, password FROM ppgo_member2 WHERE id=? LIMIT 1", id).Scan(&m.Id, &m.LoginName, &m.Password)
+	err = db.Conns.QueryRow("SELECT id, login_name, password FROM ppgo_member WHERE id=? LIMIT 1", id).Scan(&m.Id, &m.LoginName, &m.Password)
 	return
 }
 
 func (m *Member) UpdateMember(id int) (n int64, err error) {
-	res, err := db.Conns.Prepare("UPDATE ppgo_member2 SET login_name=?,password=? WHERE id=?")
+	res, err := db.Conns.Prepare("UPDATE ppgo_member SET login_name=?,password=? WHERE id=?")
 	defer res.Close()
 	if err != nil {
 		log.Fatal(err)
@@ -85,7 +85,7 @@ func (m *Member) UpdateMember(id int) (n int64, err error) {
 
 func DeleteMember(id int) (n int64, err error) {
 	n = 0
-	rs, err := db.Conns.Exec("DELETE FROM ppgo_member2 WHERE id=?", id)
+	rs, err := db.Conns.Exec("DELETE FROM ppgo_member WHERE id=?", id)
 	if err != nil {
 		log.Fatalln(err)
 		return

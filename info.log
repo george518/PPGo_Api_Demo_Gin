@@ -1,0 +1,20 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] Loaded HTML Templates (2): 
+	- default.html
+	- 
+
+[GIN-debug] GET    /                         --> github.com/george518/PPGo_Api_Demo_Gin/apps.IndexApi (3 handlers)
+[GIN-debug] POST   /v0/member                --> github.com/george518/PPGo_Api_Demo_Gin/apps.MemberAdd (4 handlers)
+[GIN-debug] GET    /v0/member                --> github.com/george518/PPGo_Api_Demo_Gin/apps.MemberList (4 handlers)
+[GIN-debug] GET    /v0/member/:id            --> github.com/george518/PPGo_Api_Demo_Gin/apps.MemberGet (4 handlers)
+[GIN-debug] PUT    /v0/member/:id            --> github.com/george518/PPGo_Api_Demo_Gin/apps.MemberEdit (4 handlers)
+[GIN-debug] DELETE /v0/member/:id            --> github.com/george518/PPGo_Api_Demo_Gin/apps.MemberDelete (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8000
+[GIN] 2017/10/18 - 22:26:56 | 200 |     793.331µs |             ::1 | GET      /

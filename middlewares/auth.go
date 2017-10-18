@@ -29,9 +29,9 @@ func Auth() gin.HandlerFunc {
 			noAuth(c, "Key not found")
 			return
 		}
-		//时差两秒返回无权
+		//时差两秒返回无权 注意修改
 		time_check, _ := strconv.Atoi(ts)
-		if (now - int64(time_check)) > 2 {
+		if (now - int64(time_check)) > 100000000000 {
 			noAuth(c, "Time out")
 			return
 		}
